@@ -3,7 +3,19 @@
 Описываешь задачу словами — агент сам пишет код, создаёт и правит файлы,
 запускает команды, проверяет результат и чинит ошибки. Полностью бесплатно.
 
-## Быстрый старт (бесплатно, без ключей)
+## Быстрый старт вариант 1: Google Gemini (бесплатный ключ за минуту)
+
+1. Получите бесплатный API-ключ на https://aistudio.google.com/apikey
+   (нужен только Google-аккаунт, карта не требуется; есть щедрый бесплатный тариф).
+2. Запустите агента:
+   ```bash
+   export GEMINI_API_KEY=AIza...
+   python3 vibe_agent.py "сделай cli-заметки с сохранением в json"
+   ```
+   Модель по умолчанию — `gemini-2.0-flash` (можно менять через `--model`,
+   например `gemini-2.5-flash`). Работает без сторонних pip-пакетов.
+
+## Быстрый старт вариант 2: Ollama (совсем бесплатно, локально, без ключей)
 
 1. Установите [Ollama](https://ollama.com) и скачайте кодинг-модель:
    ```bash
@@ -27,7 +39,7 @@ python3 vibe_agent.py --provider openrouter \
 Также поддерживается любой OpenAI-совместимый API (`--provider openai`,
 переменные `OPENAI_API_KEY` / `OPENAI_BASE_URL`).
 
-Бэкенд выбирается автоматически: Ollama → OpenRouter → OpenAI.
+Бэкенд выбирается автоматически: Gemini (если задан `GEMINI_API_KEY`) → Ollama → OpenRouter → OpenAI.
 
 ## Что умеет агент
 
@@ -47,8 +59,9 @@ python3 vibe_agent.py --provider openrouter \
 
 | Переменная / флаг      | Значение по умолчанию                     |
 |------------------------|-------------------------------------------|
-| `--provider`           | автовыбор                                 |
-| `--model`              | `qwen2.5-coder:7b` (Ollama) / `...:free` (OpenRouter) |
+| `--provider`           | автовыбор (`gemini` / `ollama` / `openrouter` / `openai`) |
+| `--model`              | `gemini-2.0-flash` (Gemini) / `qwen2.5-coder:7b` (Ollama) / `...:free` (OpenRouter) |
+| `GEMINI_API_KEY`       | — (бесплатный ключ на https://aistudio.google.com/apikey; также читается `GOOGLE_API_KEY`) |
 | `OLLAMA_HOST`          | `http://localhost:11434`                  |
 | `VIBE_MAX_STEPS`       | 30                                        |
 | `VIBE_CMD_TIMEOUT`     | 60 сек                                    |
@@ -60,4 +73,4 @@ python3 vibe_agent.py --provider openrouter \
 - Запускайте в папке проекта или песочнице.
 
 Зависимости: Python 3.9+; пакет `openai` нужен только для облачных бэкендов
-(`pip install openai`), локальный Ollama работает на стандартной библиотеке.
+(`pip install openai`), локальный Ollama и Gemini работают на стандартной библиотеке (без pip-зависимостей).

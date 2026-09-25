@@ -7,6 +7,7 @@ Vibe Agent — бесплатный ИИ-агент для вайбкодинг�
 агент сам читает/создаёт/редактирует файлы и запускает команды.
 
 Бесплатные бэкенды (выбираются автоматически или через --provider):
+  * Gemini        — бесплатный ключ за минуту на https://aistudio.google.com/apikey
   * Ollama        — локальные модели, полностью бесплатно, без ключей (http://localhost:11434)
   * OpenRouter    — бесплатные модели вида deepseek/deepseek-chat-v3-...:free (нужен бесплатный ключ)
   * OpenAI-совместимый API — любой совместимый сервер (укажите --base-url и OPENAI_API_KEY)
@@ -15,11 +16,12 @@ Vibe Agent — бесплатный ИИ-агент для вайбкодинг�
   python3 vibe_agent.py "сделай скрипт, который переименовывает все .jpg в папке по дате"
   python3 vibe_agent.py            # интерактивный режим (REPL)
   python3 vibe_agent.py --provider ollama --model qwen2.5-coder:7b "напиши игру змейка на python"
+  export GEMINI_API_KEY=... && python3 vibe_agent.py --provider gemini "змейка на pygame"
 
 Переменные окружения:
-  VIBE_PROVIDER   ollama | openrouter | openai
+  VIBE_PROVIDER   gemini | ollama | openrouter | openai
   VIBE_MODEL      имя модели
-  OPENROUTER_API_KEY / OPENAI_API_KEY   ключи
+  GEMINI_API_KEY / OPENROUTER_API_KEY / OPENAI_API_KEY   ключи
   OLLAMA_HOST     адрес сервера Ollama (по умолчанию http://localhost:11434)
 """
 
@@ -217,17 +219,105 @@ class Ollama(Backend):
         return {"content": msg.get("content") or "", "tool_calls": calls}
 
 
+class Gemini(Backend):
+    """Google Gemini через REST API (generativelanguage.googleapis.com).
+
+    Бесплатный ключ: https://aistudio.google.com/apikey (нужен только Google-аккаунт).
+    Бесплатные модели: gemini-2.0-flash, gemini-2.5-flash и т.п.
+    Работает без сторонних pip-пакетов — только стандартная библиотека.
+    """
+
+    BASE = "https://generativelanguage.googleapis.com/v1beta"
+
+    def __init__(self, api_key, model):
+        self.api_key = api_key
+        self.model = model
+
+    def _convert(self, messages):
+        """OpenAI-формат сообщений -> Gemini systemInstruction + contents."""
+        system = ""
+        contents = []
+        for m in messages:
+            role = m.get("role")
+            if role == "system":
+                system = m.get("content") or ""
+            elif role == "user":
+                contents.append({"role": "user",
+                                 "parts": [{"text": m.get("content") or ""}]})
+            elif role == "assistant":
+                parts = []
+                if m.get("content"):
+                    parts.append({"text": m["content"]})
+                for tc in (m.get("tool_calls") or []):
+                    fn = tc.get("function", {})
+                    try:
+                        args = json.loads(fn.get("arguments") or "{}")
+                    except json.JSONDecodeError:
+                        args = {}
+                    parts.append({"functionCall": {"name": fn.get("name"),
+                                                   "args": args}})
+                if parts:
+                    contents.append({"role": "model", "parts": parts})
+            elif role == "tool":
+                contents.append({"role": "user", "parts": [{
+                    "functionResponse": {"name": m.get("name") or "tool",
+                                         "response": {"result": m.get("content") or ""}}}]})
+        return system, contents
+
+    def chat(self, messages):
+        import urllib.request
+        system, contents = self._convert(messages)
+        body = {
+            "contents": contents,
+            "generationConfig": {"temperature": 0.2},
+            "tools": [{"functionDeclarations": [t["function"] for t in TOOLS]}],
+        }
+        if system:
+            body["systemInstruction"] = {"parts": [{"text": system}]}
+        url = f"{self.BASE}/models/{self.model}:generateContent?key={self.api_key}"
+        req = urllib.request.Request(url, data=json.dumps(body).encode(),
+                                     headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=300) as r:
+            data = json.loads(r.read().decode())
+
+        text, calls = "", []
+        cand = (data.get("candidates") or [{}])[0]
+        for part in ((cand.get("content") or {}).get("parts") or []):
+            if "text" in part:
+                text += part["text"]
+            elif "functionCall" in part:
+                fc = part["functionCall"]
+                calls.append({"id": fc.get("id") or f"call_{len(calls)}",
+                              "name": fc.get("name"),
+                              "arguments": fc.get("args") or {}})
+        if not (data.get("candidates")):
+            raise RuntimeError(f"Gemini вернул пустой ответ: {data}")
+        finish = cand.get("finishReason")
+        if not text and not calls and finish not in (None, "STOP", "MAX_TOKENS"):
+            raise RuntimeError(f"Gemini: ответ не получен (finishReason={finish}). "
+                               "Возможно, сработал контент-фильтр или исчерпан бесплатный лимит запросов.")
+        return {"content": text, "tool_calls": calls}
+
+
 def pick_backend(provider, model):
     provider = (provider or os.environ.get("VIBE_PROVIDER") or "").lower()
 
     candidates = []
     if provider:
         candidates = [provider]
-    else:  # автовыбор: сначала локальный Ollama, потом OpenRouter, потом OpenAI
-        candidates = ["ollama", "openrouter", "openai"]
+    else:  # автовыбор: сначала Gemini (если есть ключ), потом локальный Ollama, OpenRouter, OpenAI
+        candidates = ["gemini", "ollama", "openrouter", "openai"]
 
     for p in candidates:
-        if p == "ollama":
+        if p == "gemini":
+            key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+            if key:
+                m = model or os.environ.get("VIBE_MODEL") or "gemini-2.0-flash"
+                print(f"[vibe] бэкенд: Google Gemini (бесплатный тариф), модель: {m}", file=sys.stderr)
+                return Gemini(key, m)
+            elif provider == "gemini":
+                sys.exit("[vibe] Нужен бесплатный ключ Gemini: https://aistudio.google.com/apikey → export GEMINI_API_KEY=...")
+        elif p == "ollama":
             host = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
             m = model or os.environ.get("VIBE_MODEL") or "qwen2.5-coder:7b"
             try:
@@ -259,9 +349,11 @@ def pick_backend(provider, model):
 
     sys.exit(
         "[vibe] Не найден ни один доступный бэкенд.\n"
-        "  Бесплатный вариант 1 (рекомендуется): установите Ollama → https://ollama.com\n"
+        "  Бесплатный вариант 1 (рекомендуется): получите бесплатный ключ Gemini за минуту\n"
+        "     https://aistudio.google.com/apikey → export GEMINI_API_KEY=...\n"
+        "  Бесплатный вариант 2 (локально, без ключей): установите Ollama → https://ollama.com\n"
         "     ollama pull qwen2.5-coder:7b   — и запустите агент снова.\n"
-        "  Бесплатный вариант 2: получите бесплатный ключ на https://openrouter.ai\n"
+        "  Бесплатный вариант 3: получите бесплатный ключ на https://openrouter.ai\n"
         "     export OPENROUTER_API_KEY=sk-or-...\n"
     )
 
@@ -387,7 +479,7 @@ def main():
     global MAX_STEPS
     ap = argparse.ArgumentParser(description="Vibe Agent — бесплатный ИИ-агент для вайбкодинга")
     ap.add_argument("task", nargs="*", help="Задача своими словами (или пустите в REPL)")
-    ap.add_argument("--provider", choices=["ollama", "openrouter", "openai"], help="LLM-бэкенд (по умолчанию автовыбор)")
+    ap.add_argument("--provider", choices=["gemini", "ollama", "openrouter", "openai"], help="LLM-бэкенд (по умолчанию автовыбор)")
     ap.add_argument("--model", help="Имя модели")
     ap.add_argument("--max-steps", type=int, default=MAX_STEPS)
     args = ap.parse_args()
