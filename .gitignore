@@ -1,0 +1,5 @@
+# Logs
+*.log
+
+# Base64 encoded files
+*.b64
