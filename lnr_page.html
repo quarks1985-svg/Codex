@@ -1,0 +1,509 @@
+<!-- ============================================================
+     СТРАНИЦА МОДЕЛИ: Установка лазерной резки — серия LNR PRO (лист + труба 2-в-1)
+     (/ustanovka-lazernoj-rezki-metalla-lf3015lnr-pro/) · LF3015LNR PRO / LF6015LNR PRO
+     Шаблон: страница серии LN PRO. Стили изолированы (#nqProd). Без цен.
+     Без сроков доставки и пусконаладки.
+     ГАЛЕРЕЯ В HERO: большое фото + 5 миниатюр, клик меняет фото.
+     Бейдж «В наличии» поверх. Hero-фото: 3015lnr-min.jpg.
+     ПОПАПЫ: в шапке РАЗНЫЕ кнопки для разных экранов —
+       · ≤1366px: #premium-modal-592133b · >1366px: #premium-modal-cb9c892
+     JS выбирает ВИДИМУЮ нативную кнопку хедера и кликает по ней.
+     TODO: сверить с паспортом: ускорение 1,0G · ход Z 300 мм vs 100 мм у LN PRO ·
+     Y-ход «3000/6000» (по модели — вероятно 1500/3000) · сервомоторы X 0,85 / Y 2×0,85 кВт
+     (в тексте старой страницы — 2×1,3 кВт) · PDF спецификации (ссылка-заглушка) ·
+     источник до 4 кВт (фигурирует в таблице скоростей на старой странице).
+     Yoast:
+     Ключ: установка лазерной резки LNR PRO
+     Title: Установка лазерной резки LNR PRO — лист и труба 2-в-1 | NOWATEQ
+     Desc: Установка лазерной резки металла G.Weike LNR PRO: лист и труба на одном станке, мощность 1,5–3 кВт, патрон 240 мм, повторяемость ±0,02 мм. Склад в СПб, гарантия 3 года, лизинг от 0%.
+============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+#nqProd{font-family:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;color:#0F172A;-webkit-font-smoothing:antialiased}
+#nqProd *{box-sizing:border-box}
+#nqProd h1,#nqProd h2,#nqProd h3,#nqProd p,#nqProd a,#nqProd span,#nqProd button,#nqProd td,#nqProd th,#nqProd li{margin:0;padding:0}
+#nqProd ul{margin:0;padding:0;list-style:none}
+#nqProd button{font-family:inherit;-webkit-appearance:none;appearance:none}
+
+/* ===== Хлебные крошки ===== */
+#nqProd .nqp-crumbs{font-size:13px;color:#64748B;margin-bottom:18px}
+#nqProd .nqp-crumbs a{color:#64748B;text-decoration:none}
+#nqProd .nqp-crumbs a:hover{color:#F97316}
+#nqProd .nqp-crumbs i{font-style:normal;margin:0 6px;color:#CBD5E1}
+
+/* ===== HERO: слева галерея (большое фото + миниатюры), справа текст ===== */
+#nqProd .nqp-hero{display:grid;grid-template-columns:460px 1fr;gap:36px;align-items:start}
+#nqProd .nqp-photo{border:1px solid #E2E8F0;border-radius:16px;overflow:hidden;background:#fff;position:relative;width:460px;max-width:100%;padding:12px}
+#nqProd .nqp-badge{position:absolute;top:14px;left:14px;background:#16A34A;color:#fff;padding:5px 11px;border-radius:7px;font-size:12.5px;font-weight:700;z-index:2}
+#nqProd .nqp-gal-big{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;overflow:hidden}
+#nqProd .nqp-gal-big img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;transition:opacity .2s}
+#nqProd .nqp-gal-big img.fade{opacity:0}
+#nqProd .nqp-gal-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:10px}
+#nqProd .nqp-gthumb{border:2px solid #E2E8F0;border-radius:9px;background:#fff;cursor:pointer;padding:5px;display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;transition:.15s;font-family:inherit;-webkit-appearance:none;appearance:none}
+#nqProd .nqp-gthumb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+#nqProd .nqp-gthumb:hover{border-color:#F97316}
+#nqProd .nqp-gthumb.active{border-color:#F97316;background:#FFF7ED}
+
+#nqProd h1{font-size:clamp(24px,3.2vw,38px);font-weight:800;letter-spacing:-.015em;line-height:1.15;margin-bottom:6px}
+#nqProd .nqp-model{font-size:15px;color:#64748B;margin-bottom:16px}
+#nqProd .nqp-model b{color:#0F172A}
+#nqProd .nqp-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+#nqProd .nqp-chip{background:#F1F5F9;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:600;color:#0F172A}
+#nqProd .nqp-chip i{font-style:normal;color:#64748B;font-weight:500}
+#nqProd .nqp-lead{font-size:15.5px;color:#475569;line-height:1.65;margin-bottom:20px}
+#nqProd .nqp-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+#nqProd .nqp-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 22px;font-size:14.5px;font-weight:700;border-radius:9px;text-decoration:none;white-space:nowrap;transition:.15s;cursor:pointer;border:0}
+#nqProd .nqp-btn--primary{background:#F97316;color:#fff}
+#nqProd .nqp-btn--primary:hover{background:#EA580C;color:#fff}
+#nqProd .nqp-btn--ghost{background:#fff;color:#0F172A;border:1.5px solid #CBD5E1}
+#nqProd .nqp-btn--ghost:hover{border-color:#F97316;color:#F97316}
+#nqProd .nqp-mini{display:flex;gap:18px;flex-wrap:wrap;padding-top:16px;border-top:1px solid #E2E8F0}
+#nqProd .nqp-mini div{font-size:13px;color:#64748B;display:flex;align-items:center;gap:6px}
+#nqProd .nqp-mini svg{width:16px;height:16px;color:#16A34A;flex-shrink:0}
+
+/* ===== Секции ===== */
+#nqProd .nqp-sec{margin-top:44px}
+#nqProd h2{font-size:clamp(20px,2.4vw,26px);font-weight:800;margin-bottom:14px}
+#nqProd .nqp-sec p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:12px}
+#nqProd .nqp-sec b{color:#0F172A}
+
+/* ===== Два исполнения ===== */
+#nqProd .nqp-vars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+#nqProd .nqp-var{border:1px solid #E2E8F0;border-radius:12px;padding:18px 20px;background:#F8FAFC}
+#nqProd .nqp-var h3{font-size:16.5px;font-weight:800;margin-bottom:6px}
+#nqProd .nqp-var p{font-size:13.5px;color:#64748B;line-height:1.55}
+
+/* ===== Таблица характеристик ===== */
+#nqProd .nqp-specs{width:100%;border-collapse:separate;border-spacing:0;font-size:14.5px;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden}
+#nqProd .nqp-specs td{padding:12px 16px;border-bottom:1px solid #EEF2F7;vertical-align:top}
+#nqProd .nqp-specs tr:last-child td{border-bottom:0}
+#nqProd .nqp-specs td:first-child{color:#64748B;width:52%;background:#F8FAFC}
+#nqProd .nqp-specs td:last-child{font-weight:600;color:#0F172A}
+
+/* ===== Особенности ===== */
+#nqProd .nqp-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+#nqProd .nqp-fcard{border:1px solid #E2E8F0;border-radius:12px;padding:18px 20px;background:#fff}
+#nqProd .nqp-fcard b{display:block;font-size:15.5px;font-weight:800;margin-bottom:6px}
+#nqProd .nqp-fcard span{font-size:13.5px;color:#64748B;line-height:1.55;display:block}
+
+/* ===== Комплектующие ===== */
+#nqProd .nqp-comp{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+#nqProd .nqp-citem{border:1px solid #E2E8F0;border-radius:12px;padding:16px;background:#fff}
+#nqProd .nqp-citem b{display:block;font-size:15px;font-weight:800;margin-bottom:4px}
+#nqProd .nqp-citem span{font-size:12.5px;color:#64748B;line-height:1.45;display:block}
+
+/* ===== Полоса доверия ===== */
+#nqProd .nqp-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+#nqProd .nqp-titem{display:flex;align-items:center;gap:12px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:14px 16px;transition:.2s}
+#nqProd .nqp-titem:hover{border-color:#F97316;background:#FFF7ED}
+#nqProd .nqp-titem svg{width:32px;height:32px;flex-shrink:0;color:#F97316}
+#nqProd .nqp-titem b{display:block;font-size:17px;font-weight:800;line-height:1.15}
+#nqProd .nqp-titem span{display:block;font-size:12.5px;color:#64748B;margin-top:2px}
+
+/* ===== Лизинг ===== */
+#nqProd .nqp-lease{margin-top:44px}
+#nqProd .nqp-lease h2{margin-bottom:8px}
+#nqProd .nqp-lease>p{font-size:15px;color:#475569;line-height:1.7;margin-bottom:16px}
+#nqProd .nqp-lease>p b{color:#0F172A}
+#nqProd .nqp-lease-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+#nqProd .nqp-litem{border:1px solid #E2E8F0;border-radius:12px;padding:16px 18px;background:#F8FAFC;transition:.2s}
+#nqProd .nqp-litem:hover{border-color:#F97316;background:#FFF7ED}
+#nqProd .nqp-litem b{display:block;font-size:18px;font-weight:800;line-height:1.15;color:#0F172A}
+#nqProd .nqp-litem span{display:block;font-size:12.5px;color:#64748B;line-height:1.4;margin-top:3px}
+#nqProd .nqp-lease-note{font-size:13.5px;color:#64748B;line-height:1.6;margin-bottom:18px}
+
+/* ===== Блок заявки ===== */
+#nqProd .nqp-order{background:#0F172A;color:#fff;border-radius:16px;padding:clamp(24px,3vw,40px);margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:36px;position:relative;overflow:hidden}
+#nqProd .nqp-order::before{content:"";position:absolute;right:-80px;top:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.25),transparent 70%)}
+#nqProd .nqp-order h2{color:#fff;position:relative;margin-bottom:14px}
+#nqProd .nqp-order p{font-size:14.5px;color:#94A3B8;line-height:1.6;position:relative;margin-bottom:14px}
+#nqProd .nqp-order ul{position:relative;display:grid;gap:10px}
+#nqProd .nqp-order ul li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#E2E8F0;line-height:1.5}
+#nqProd .nqp-order ul svg{width:16px;height:16px;flex-shrink:0;margin-top:3px;color:#4ADE80}
+#nqProd .nqp-order .nqp-form{margin-top:4px}
+#nqProd .nqp-form{background:#fff;border-radius:14px;padding:28px;color:#0F172A;position:relative;display:flex;flex-direction:column;justify-content:center}
+#nqProd .nqp-form h3{font-size:19px;font-weight:800;margin-bottom:6px}
+#nqProd .nqp-form>p{font-size:13.5px;color:#64748B;margin-bottom:18px;line-height:1.55}
+#nqProd .nqp-form .nqp-btn--primary{width:100%}
+#nqProd .nqp-form .nqp-micro{font-size:12px;color:#94A3B8;text-align:center;margin-top:10px}
+#nqProd .nqp-phone-line{font-size:13px;color:#64748B;text-align:center;margin-top:14px;padding-top:14px;border-top:1px dashed #E2E8F0}
+#nqProd .nqp-phone-line a{font-weight:700;color:#0F172A}
+
+/* ===== FAQ ===== */
+#nqProd .nqp-faq{margin-top:44px}
+#nqProd .nqp-faq h2{margin-bottom:18px}
+#nqProd .nqp-qi{border:1px solid #E2E8F0;border-radius:10px;margin-bottom:10px;background:#fff;overflow:hidden}
+#nqProd .nqp-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 18px;background:none;border:0;cursor:pointer;font-size:15px;font-weight:600;color:#0F172A;text-align:left}
+#nqProd .nqp-q::after{content:"+";font-size:22px;color:#F97316;font-weight:400;transition:.2s;flex-shrink:0}
+#nqProd .nqp-qi.open .nqp-q::after{transform:rotate(45deg)}
+#nqProd .nqp-a{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:14px;color:#64748B;line-height:1.65}
+#nqProd .nqp-a p{padding:0 18px 16px}
+
+/* ===== Адаптив ===== */
+@media(max-width:1100px){
+  #nqProd .nqp-hero{grid-template-columns:400px 1fr;gap:28px}
+  #nqProd .nqp-photo{width:400px}
+}
+@media(max-width:960px){
+  #nqProd .nqp-hero{grid-template-columns:1fr}
+  #nqProd .nqp-photo{order:-1;max-width:480px;margin:0 auto}
+  #nqProd .nqp-order{grid-template-columns:1fr}
+  #nqProd .nqp-order .nqp-form{margin-top:8px}
+  #nqProd .nqp-feat{grid-template-columns:1fr}
+  #nqProd .nqp-comp{grid-template-columns:repeat(2,1fr)}
+  #nqProd .nqp-trust{grid-template-columns:repeat(2,1fr)}
+  #nqProd .nqp-lease-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  #nqProd .nqp-vars{grid-template-columns:1fr}
+  #nqProd .nqp-comp{grid-template-columns:1fr}
+  #nqProd .nqp-trust{grid-template-columns:1fr}
+  #nqProd .nqp-lease-grid{grid-template-columns:1fr}
+  #nqProd h1{font-size:24px}
+  #nqProd .nqp-photo{width:100%}
+  #nqProd .nqp-btns{flex-direction:column;align-items:stretch;gap:10px}
+  #nqProd .nqp-btn{width:100%;white-space:normal}
+  #nqProd .nqp-lease .nqp-btn{width:100%}
+  #nqProd .nqp-gal-thumbs{gap:6px}
+  #nqProd .nqp-order{padding:22px 16px;display:block}
+  #nqProd .nqp-order h2{font-size:20px;line-height:1.25}
+  #nqProd .nqp-order p{font-size:14px;margin-bottom:10px}
+  #nqProd .nqp-order ul{gap:8px}
+  #nqProd .nqp-order ul li{font-size:13.5px;line-height:1.45}
+  #nqProd .nqp-order ul svg{width:14px;height:14px;margin-top:2px}
+  #nqProd .nqp-order .nqp-form{margin-top:18px}
+  #nqProd .nqp-form{padding:20px 16px}
+  #nqProd .nqp-form h3{font-size:17px}
+  #nqProd .nqp-form>p{font-size:13px;margin-bottom:14px}
+  #nqProd .nqp-form .nqp-btn--primary{font-size:14px;padding:13px 14px;line-height:1.35}
+  #nqProd .nqp-form .nqp-micro{display:none}
+  #nqProd .nqp-phone-line{font-size:12.5px}
+}
+</style>
+
+<div id="nqProd">
+
+  <div class="nqp-crumbs">
+    <a href="/">Главная</a><i>›</i><a href="/stanki-lazernoj-rezki/">Станки лазерной резки</a><i>›</i><span>Серия LNR PRO</span>
+  </div>
+
+  <!-- ================= HERO: слева галерея, справа текст ================= -->
+  <div class="nqp-hero">
+    <div class="nqp-photo">
+      <span class="nqp-badge">В наличии на складе в СПб</span>
+
+      <div class="nqp-gal-big"><img id="nqpGalBig" src="https://chinalaser.spb.ru/wp-content/uploads/2024/11/3015lnr-min.jpg" alt="Установка лазерной резки листа и трубы серии LNR PRO — общий вид"></div>
+
+      <div class="nqp-gal-thumbs" id="nqpGalThumbs">
+        <button class="nqp-gthumb active" type="button" data-i="0" aria-label="Общий вид">
+          <img src="https://chinalaser.spb.ru/wp-content/uploads/2024/11/3015lnr-min.jpg" alt="" loading="lazy"></button>
+        <button class="nqp-gthumb" type="button" data-i="1" aria-label="Вид 2">
+          <img src="https://chinalaser.spb.ru/wp-content/uploads/2024/11/3015lnr_2-min.jpg" alt="" loading="lazy"></button>
+        <button class="nqp-gthumb" type="button" data-i="2" aria-label="Схема обработки">
+          <img src="https://chinalaser.spb.ru/wp-content/uploads/2024/11/gweike_lf3015lnr_app2-min.jpg" alt="" loading="lazy"></button>
+        <button class="nqp-gthumb" type="button" data-i="3" aria-label="Фото образцов реза">
+          <img src="https://chinalaser.spb.ru/wp-content/uploads/2024/09/foto-obrazczov.jpg" alt="" loading="lazy"></button>
+        <button class="nqp-gthumb" type="button" data-i="4" aria-label="Станина">
+          <img src="https://chinalaser.spb.ru/wp-content/uploads/2024/09/stanina-1.jpg" alt="" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div>
+      <h1>Установка лазерной резки металла — серия LNR PRO</h1>
+      <p class="nqp-model">Модели: <b>LF3015LNR PRO / LF6015LNR PRO</b> · лист и труба «2-в-1»</p>
+      <div class="nqp-chips">
+        <span class="nqp-chip">Мощность <i>1,5–3 кВт</i></span>
+        <span class="nqp-chip">Трубы <i>Ø10–240 мм</i></span>
+        <span class="nqp-chip">Повторяемость <i>±0,02 мм</i></span>
+      </div>
+      <p class="nqp-lead">Волоконная установка, совмещающая раскрой листового металла и резку труб: пневматический патрон Ø240 мм, круглая труба 10–240 мм, квадратная 15×15–148×148 мм. Один станок вместо двух — экономия бюджета и места в цехе. Жёсткая сварная станина после термообработки, автофокусная голова Raytools, ЧПУ Cypcut на русском языке.</p>
+      <div class="nqp-btns">
+        <a href="#" class="nqp-btn nqp-btn--primary nqp-cta">Получить цену и условия</a>
+        <a class="nqp-btn nqp-btn--ghost" href="https://chinalaser.spb.ru/pdf-lf3015lnr-pro/" target="_blank" rel="noopener">Спецификация в PDF
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg></a>
+      </div>
+      <div class="nqp-mini">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Гарантия 3 года в договоре</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Лист + труба на одном станке</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Доставка — 42 региона РФ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= О СЕРИИ ================= -->
+  <div class="nqp-sec">
+    <h2>О серии LNR PRO</h2>
+    <p><b>LNR PRO — лист и трубы на одном станке.</b> Установка совмещает раскрой листового металла и резку труб (пневматический патрон на 240 мм), экономя место в цехе и бюджет на покупку двух станков. Рассчитана на серийное производство сложных деталей и круглосуточную работу.</p>
+    <p>Сварная станина из толстостенной профильной трубы проходит термический отпуск для снятия напряжений — геометрия станка остаётся стабильной долгие годы. Оси X/Y приводят сервомоторы Inovance, позиционирование контролирует ЧПУ Cypcut FSCUT 2000E с русским интерфейсом, а резательная голова Raytools BM111 с автофокусом сама подстраивается под толщину материала.</p>
+  </div>
+
+  <!-- ================= ТРИ КОЗЫРЯ ================= -->
+  <div class="nqp-sec">
+    <h2>Почему выбирают LNR PRO</h2>
+    <div class="nqp-feat">
+      <div class="nqp-fcard"><b>Два в одном: лист и трубы</b><span>Раскрой листа и резка труб на одной установке — не нужны второй станок, вторая площадка и второй оператор.</span></div>
+      <div class="nqp-fcard"><b>Высокая точность</b><span>Повторяемость позиционирования ±0,02 мм обеспечивает стабильное качество даже при серийном производстве сложных деталей.</span></div>
+      <div class="nqp-fcard"><b>Экономичность и надёжность</b><span>Сварная станина с термообработкой гарантирует долговечность и стабильность геометрии в течение долгих лет.</span></div>
+    </div>
+  </div>
+
+  <!-- ================= ДВА ИСПОЛНЕНИЯ ================= -->
+  <div class="nqp-sec">
+    <h2>Два исполнения — под длину ваших труб</h2>
+    <div class="nqp-vars">
+      <div class="nqp-var">
+        <h3>LF3015LNR PRO</h3>
+        <p>Листовое поле и трубы длиной <b>до 3 000 мм</b>. Одна поддерживающая опора, автоматически поднимающаяся и опускающаяся. Оптимальна для мебельных каркасов, ограждений, рекламных конструкций.</p>
+      </div>
+      <div class="nqp-var">
+        <h3>LF6015LNR PRO</h3>
+        <p>Удлинённая версия: трубы <b>до 6 000 мм</b>, две опоры. Для длинномерных профилей, металлоконструкций и производства трубной мебели.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ХАРАКТЕРИСТИКИ ================= -->
+  <div class="nqp-sec">
+    <h2>Характеристики: LF3015LNR PRO / LF6015LNR PRO</h2>
+    <table class="nqp-specs">
+      <tr><td>Мощность лазерного источника</td><td>1,5–3 кВт</td></tr>
+      <tr><td>Ход осей X / Y</td><td>1 500 / 3 000 мм (LF6015LNR PRO — 6 000 мм)</td></tr>
+      <tr><td>Ход оси Z</td><td>300 мм</td></tr>
+      <tr><td>Макс. длина труб</td><td>3 000 мм / 6 000 мм</td></tr>
+      <tr><td>Диаметр труб</td><td>круглая Ø10–240 мм; квадратная 15×15–148×148 мм</td></tr>
+      <tr><td>Угол вращения, ось W</td><td>без лимита, n×360°</td></tr>
+      <tr><td>Макс. скорость вращения, ось W</td><td>80 об/мин</td></tr>
+      <tr><td>Макс. масса загруженных труб</td><td>300 кг (50 кг/м)</td></tr>
+      <tr><td>Точность позиционирования X/Y/U</td><td>±0,03 мм</td></tr>
+      <tr><td>Повторяемость позиционирования X/Y/U</td><td>±0,02 мм</td></tr>
+      <tr><td>Макс. скорость перемещения X/Y</td><td>80 м/мин</td></tr>
+      <tr><td>Макс. скорость резки X/Y/U</td><td>60 м/мин</td></tr>
+      <tr><td>Макс. ускорение X/Y/U</td><td>1,0 G</td></tr>
+      <tr><td>Сервомоторы</td><td>X — 0,85 кВт; Y — 2 шт.; Z — 0,4 кВт; W1/W2/U — 1,8 кВт (3 шт.)</td></tr>
+      <tr><td>Электропитание</td><td>380 В, 50 Гц</td></tr>
+      <tr><td>Масса установки</td><td>4 500 кг</td></tr>
+    </table>
+  </div>
+
+  <!-- ================= КОМПЛЕКТАЦИЯ ================= -->
+  <div class="nqp-sec">
+    <h2>Комплектация и комплектующие промышленного класса</h2>
+    <div class="nqp-comp">
+      <div class="nqp-citem"><b>Raycus · источник</b><span>Оптоволоконный лазерный источник, 1,5–3 кВт</span></div>
+      <div class="nqp-citem"><b>Raytools BM111</b><span>Режущая голова с автофокусом и бесконтактным контроллером высоты</span></div>
+      <div class="nqp-citem"><b>Inovance</b><span>Сервомоторы и приводы осей X, Y, Z</span></div>
+      <div class="nqp-citem"><b>Cypcut FSCUT 2000E</b><span>ЧПУ с русским интерфейсом: FLYCUT, NESTING, MICRO JOINT, PULSECUT</span></div>
+      <div class="nqp-citem"><b>Atlanta · Neugart</b><span>Зубчатые рейки и редукторы — Германия</span></div>
+      <div class="nqp-citem"><b>Hiwin / PMI · TBI · NSK</b><span>Направляющие, ШВП оси Z, подшипники</span></div>
+      <div class="nqp-citem"><b>Патрон Ø240 мм</b><span>Передний автоматический пневматический, 3 ряда зажимов, зубчатый привод</span></div>
+      <div class="nqp-citem"><b>Chiller Tongfei + дымоудаление</b><span>Охлаждение 8 500 Вт (±1 °С), вентилятор, автосмазка, тележки, ящик ЗИП</span></div>
+    </div>
+  </div>
+
+  <!-- ================= ПОЛОСА ДОВЕРИЯ ================= -->
+  <div class="nqp-trust">
+    <div class="nqp-titem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+      <div><b>±0,02 мм</b><span>повторяемость позиционирования</span></div>
+    </div>
+    <div class="nqp-titem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5v8l-9 5-9-5V8z"/><path d="M12 12l9-5M12 12v9M12 12L3 7"/></svg>
+      <div><b>лист + труба</b><span>два станка по цене одного</span></div>
+    </div>
+    <div class="nqp-titem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><b>80 об/мин</b><span>вращение трубы, ось W без лимита</span></div>
+    </div>
+    <div class="nqp-titem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      <div><b>3 года</b><span>гарантия по договору</span></div>
+    </div>
+  </div>
+
+  <!-- ================= ЛИЗИНГ ================= -->
+  <div class="nqp-lease">
+    <h2>Лизинг: купите станок, не замораживая оборотные средства</h2>
+    <p><b>Мы оказываем поддержку и помогаем получить самые выгодные условия финансирования.</b> NOWATEQ аккредитован у многих лизинговых компаний — с рядом из них у нас договорённости о специальных условиях для наших заказчиков. Если у вас есть одобрение в «своей» лизинговой компании или банке — готовы сотрудничать с любой финансовой организацией на территории РФ по вашему выбору.</p>
+
+    <div class="nqp-lease-grid">
+      <div class="nqp-litem"><b>от 0%</b><span>первоначальный взнос</span></div>
+      <div class="nqp-litem"><b>от 10%</b><span>удорожание</span></div>
+      <div class="nqp-litem"><b>1–2 дня</b><span>рассмотрение заявки</span></div>
+      <div class="nqp-litem"><b>12–60 мес</b><span>срок лизинга</span></div>
+      <div class="nqp-litem"><b>равные или убывающие</b><span>график платежей — по вашему выбору</span></div>
+      <div class="nqp-litem"><b>любая ЛК или банк</b><span>работаем по всей РФ, включая вашего партнёра</span></div>
+    </div>
+
+    <p class="nqp-lease-note">Состав документов для заявки зависит от организационно-правовой формы вашего предприятия, выбранной лизинговой компании и суммы сделки — поможем собрать и подготовим заявку.</p>
+
+    <a href="#" class="nqp-btn nqp-btn--primary nqp-cta">Получить расчёт лизинга</a>
+  </div>
+
+  <!-- ================= БЛОК ЗАЯВКИ ================= -->
+  <div class="nqp-order" id="orderForm">
+    <div>
+      <h2>Получить цену и условия на LF3015LNR PRO / LF6015LNR PRO</h2>
+      <p>Пришлём цену под вашу конфигурацию, спецификацию, расчёт окупаемости и условия поставки за 30 минут в рабочее время. Без навязчивых звонков.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Цена обеих комплектаций и состав поставки</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Расчёт экономии: один станок вместо двух (лист + труба)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Условия лизинга — аванс от 0%, удорожание от 10%</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>Приглашение на демо резки трубы на складе в СПб</li>
+      </ul>
+    </div>
+    <div class="nqp-form">
+      <h3>Получить цену и условия</h3>
+      <p>Инженер пришлёт КП под вашу конфигурацию за 30 минут — заполните короткую форму в открывшемся окне.</p>
+      <a href="#" class="nqp-btn nqp-btn--primary nqp-cta">Получить цену и условия
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <p class="nqp-micro">Без навязчивых звонков · ответ за 30 минут в рабочее время</p>
+      <p class="nqp-phone-line">Или позвоните сейчас: <a href="tel:+78123099912">+7 (812) 309-99-12</a></p>
+    </div>
+  </div>
+
+  <!-- ================= FAQ ================= -->
+  <div class="nqp-faq">
+    <h2>Частые вопросы по серии LNR PRO</h2>
+
+    <div class="nqp-qi"><button class="nqp-q" type="button">Какие трубы можно резать на LNR PRO?</button>
+      <div class="nqp-a"><p>Круглые диаметром от 10 до 240 мм и квадратные от 15×15 до 148×148 мм, длиной до 3 000 мм (LF3015LNR PRO) или до 6 000 мм (LF6015LNR PRO), массой до 300 кг. Труба зажимается передним пневматическим патроном с тремя рядами зажимов, вращение — без ограничения угла (n×360°).</p></div></div>
+
+    <div class="nqp-qi"><button class="nqp-q" type="button">Как быстро переключать станок с листа на трубу?</button>
+      <div class="nqp-a"><p>Патрон и опоры конструктивно встроены в рабочее поле: для перехода на трубу достаточно установить заготовку в патрон и поднять опоры — без демонтажа узлов. Под ваш процесс покажем переключение на демо вживую на складе в СПб.</p></div></div>
+
+    <div class="nqp-qi"><button class="nqp-q" type="button">Чем LNR PRO отличается от LN PRO?</button>
+      <div class="nqp-a"><p>LN PRO — только лист. LNR PRO добавляет резку трубы: патрон Ø240 мм, оси U/W, поддержка длинных труб. Если у вас в номенклатуре есть и лист, и профиль/труба — LNR PRO заменяет два станка одним.</p></div></div>
+
+    <div class="nqp-qi"><button class="nqp-q" type="button">Какие материалы и газы используются?</button>
+      <div class="nqp-a"><p>Нержавеющая, углеродистая, легированная, электротехническая и рессорная сталь. Чёрную сталь обычно режем кислородом — быстро и с хорошим качеством; нержавейку — азотом (чистый край) или воздухом при толщине до 3 мм (дешевле, лёгкий желтоватый оттенок).</p></div></div>
+
+    <div class="nqp-qi"><button class="nqp-q" type="button">Какие условия поставки?</button>
+      <div class="nqp-a"><p>Модели серии LNR PRO есть в наличии на складе в СПб — можно приехать и посмотреть в работе. Организуем доставку в любой регион России (уже поставляли в 42 региона), растаможка и полный пакет документов для бухгалтерии включены. График отгрузки и пусконаладки инженер зафиксирует в КП под ваш проект.</p></div></div>
+
+    <div class="nqp-qi"><button class="nqp-q" type="button">Что входит в гарантию?</button>
+      <div class="nqp-a"><p>Гарантия 3 года — прописана в договоре, постгарантийное обслуживание — до 5 лет. Собственный сервисный центр и склад ЗИП в СПб: расходники (защитные линзы и сопла — ресурс 600 ч, керамические кольца — 400 ч) отгружаем в день обращения, выезд инженера — в течение 48 часов.</p></div></div>
+
+    <div class="nqp-qi"><button class="nqp-q" type="button">Можно купить в лизинг?</button>
+      <div class="nqp-a"><p>Да, и это самый популярный способ покупки станка у наших клиентов. Первоначальный взнос — от 0%, удорожание — от 10%, срок — от 12 до 60 месяцев, график платежей — равный или убывающий. Рассмотрение заявки — 1–2 дня. Работаем с многими лизинговыми компаниями по всей РФ и с любым банком по вашему выбору — поможем собрать документы и подготовим заявку.</p></div></div>
+  </div>
+
+</div>
+
+<!-- Разметка: товар + FAQ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Product","name":"Установка лазерной резки металла G.Weike серия LNR PRO (LF3015LNR PRO / LF6015LNR PRO)","image":"https://chinalaser.spb.ru/wp-content/uploads/2024/11/3015lnr-min.jpg","description":"Волоконная установка лазерной резки листа и трубы 2-в-1: мощность 1,5–3 кВт, пневматический патрон Ø240 мм, круглая труба 10–240 мм, квадратная 15×15–148×148 мм, повторяемость ±0,02 мм, ЧПУ Cypcut на русском.","brand":{"@type":"Brand","name":"G.Weike"},"sku":"LF3015LNR PRO / LF6015LNR PRO","additionalProperty":[
+{"@type":"PropertyValue","name":"Мощность лазерного источника","value":"1,5–3 кВт"},
+{"@type":"PropertyValue","name":"Диаметр труб","value":"круглая 10–240 мм, квадратная 15×15–148×148 мм"},
+{"@type":"PropertyValue","name":"Повторяемость позиционирования","value":"±0,02 мм"},
+{"@type":"PropertyValue","name":"Точность позиционирования","value":"±0,03 мм"},
+{"@type":"PropertyValue","name":"Максимальное ускорение","value":"1,0 G"},
+{"@type":"PropertyValue","name":"Макс. масса загруженных труб","value":"300 кг"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Какие трубы можно резать на LNR PRO?","acceptedAnswer":{"@type":"Answer","text":"Круглые Ø10–240 мм и квадратные 15×15–148×148 мм длиной до 3000 или 6000 мм, массой до 300 кг."}},
+{"@type":"Question","name":"Чем LNR PRO отличается от LN PRO?","acceptedAnswer":{"@type":"Answer","text":"LN PRO режет только лист, LNR PRO дополнительно режет трубу: патрон Ø240 мм, оси U/W, поддержка длинных труб."}},
+{"@type":"Question","name":"Какие условия поставки?","acceptedAnswer":{"@type":"Answer","text":"Модели есть в наличии на складе в СПб. Доставка в любой регион России, растаможка и полный пакет документов включены. Точный график зафиксируем в КП."}},
+{"@type":"Question","name":"Что входит в гарантию?","acceptedAnswer":{"@type":"Answer","text":"Гарантия 3 года по договору, постгарантийное обслуживание до 5 лет. Сервисный центр и склад ЗИП в СПб, выезд инженера в течение 48 часов."}},
+{"@type":"Question","name":"Можно купить станок в лизинг?","acceptedAnswer":{"@type":"Answer","text":"Да: первоначальный взнос от 0%, удорожание от 10%, срок 12–60 месяцев, рассмотрение заявки 1–2 дня. Работаем с лизинговыми компаниями и банками по всей РФ."}}
+]}
+</script>
+
+<script>
+(function(){
+  var root=document.getElementById('nqProd');
+
+  /* ============================================================
+     ГАЛЕРЕЯ В HERO: клик по миниатюре → плавная смена большого фото.
+     Бейдж «В наличии» остаётся поверх. Стрелки ←/→ работают, когда
+     фокус на галерее (можно Tab'нуться).
+     Добавить фото: миниатюра в .nqp-gal-thumbs (data-i по порядку)
+     + объект {src, alt} в массив GAL.
+  ============================================================ */
+  var GAL=[
+    {src:"https://chinalaser.spb.ru/wp-content/uploads/2024/11/3015lnr-min.jpg",alt:"Установка лазерной резки листа и трубы серии LNR PRO — общий вид"},
+    {src:"https://chinalaser.spb.ru/wp-content/uploads/2024/11/3015lnr_2-min.jpg",alt:"Установка лазерной резки серии LNR PRO — вид сбоку"},
+    {src:"https://chinalaser.spb.ru/wp-content/uploads/2024/11/gweike_lf3015lnr_app2-min.jpg",alt:"Схема обработки листа и трубы установкой LNR PRO"},
+    {src:"https://chinalaser.spb.ru/wp-content/uploads/2024/09/foto-obrazczov.jpg",alt:"Фото образцов реза установкой серии LNR PRO"},
+    {src:"https://chinalaser.spb.ru/wp-content/uploads/2024/09/stanina-1.jpg",alt:"Сварная станина установки серии LNR PRO"}
+  ];
+  var big=document.getElementById('nqpGalBig'),
+      thumbs=root.querySelectorAll('.nqp-gthumb'),
+      cur=0;
+  function galShow(i){
+    cur=(i+GAL.length)%GAL.length;
+    big.classList.add('fade');
+    setTimeout(function(){
+      big.src=GAL[cur].src;
+      big.alt=GAL[cur].alt;
+      big.classList.remove('fade');
+    },150);
+    thumbs.forEach(function(t,j){t.classList.toggle('active',j===cur)});
+  }
+  thumbs.forEach(function(t){
+    t.addEventListener('click',function(){galShow(+t.dataset.i)});
+  });
+  var galBox=root.querySelector('.nqp-photo');
+  galBox.setAttribute('tabindex','0');
+  galBox.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft')galShow(cur-1);
+    if(e.key==='ArrowRight')galShow(cur+1);
+  });
+
+  /* FAQ-аккордеон */
+  root.querySelectorAll('.nqp-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.parentElement,a=item.querySelector('.nqp-a'),open=item.classList.contains('open');
+      root.querySelectorAll('.nqp-qi.open').forEach(function(i){i.classList.remove('open');i.querySelector('.nqp-a').style.maxHeight=null});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+    });
+  });
+
+  /* ============================================================
+     CTA → попап «Обратный звонок» из шапки.
+     В шапке РАЗНЫЕ кнопки для разных экранов:
+       · ≤1366px (ноут/планшет/телефон): #premium-modal-592133b
+       · >1366px (десктоп):              #premium-modal-cb9c892
+     Клик по .nqp-cta → открываем ВИДИМУЮ нативную кнопку хедера;
+     фолбэк — клик любой существующей, затем прямой показ через jQuery.
+     При смене модалок — править массив POPUPS.
+  ============================================================ */
+  var POPUPS=['#premium-modal-592133b','#premium-modal-cb9c892'];
+
+  function openHeaderPopup(){
+    var i,btn;
+    for(i=0;i<POPUPS.length;i++){
+      btn=document.querySelector('button[data-toggle="premium-modal"][data-target="'+POPUPS[i]+'"]');
+      if(btn&&btn.offsetParent!==null){btn.click();return true;}
+    }
+    for(i=0;i<POPUPS.length;i++){
+      btn=document.querySelector('button[data-toggle="premium-modal"][data-target="'+POPUPS[i]+'"]');
+      if(btn){btn.click();return true;}
+    }
+    if(window.jQuery){
+      for(i=0;i<POPUPS.length;i++){
+        try{
+          var $m=window.jQuery(POPUPS[i]);
+          if($m.length){$m.modal('show');return true;}
+        }catch(err){}
+      }
+    }
+    return false;
+  }
+
+  root.querySelectorAll('.nqp-cta').forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      openHeaderPopup();
+    });
+  });
+
+  /* Цель Метрики на отправку формы в попапе — раскомментируйте с вашим ID:
+  document.addEventListener('wpcf7mailsent',function(e){
+    // ym(XXXXXX,'reachGoal','kp_request');
+  },false);
+  */
+})();
+</script>
