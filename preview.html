@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>PREVIEW NOWATEQ</title>
+<style>
+html,body{margin:0;padding:0;background:#fff;}
+body>*{width:1240px;box-sizing:border-box;margin-left:auto;margin-right:auto;}
+</style>
+</head>
+<body>
+
+<!-- ===================== ШАПКА ===================== -->
+<div class="topbar">
+  <div class="container">
+    <span>📍 Санкт-Петербург, склад и шоурум: пр. Обуховской Обороны, 110, к.2&nbsp;<a href="#contacts" style="text-decoration:underline">Как добраться</a></span>
+    <span>Пн–Пт 9:00–19:00 · Сб 10:00–16:00 · Свой сервисный центр · Звонки по РФ бесплатны</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container nav">
+    <a class="logo" href="/">
+      <span class="mark">N</span>
+      <span>NOWATEQ<small>волоконные лазеры · склад в СПб</small></span>
+    </a>
+    <button class="burger" aria-label="Меню" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    <nav class="menu" id="menu">
+      <a href="#catalog">Станки</a>
+      <a href="#prices">Прайс-лист</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#service">Сервис</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-phone" href="tel:+78123170000">+7 (812) 317-00-00<small>отдел продаж · пн–сб</small></a>
+      <a class="btn btn-red" href="#lead-form" data-goal="header_kp">Получить КП за 30 минут</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="tag">Всё в наличии на складе в Санкт-Петербурге</span>
+      <h1 class="h1" style="margin-top:16px">Волоконные лазерные станки для резки металла — <span class="accent">со склада в СПб, от 1 490 000 ₽</span></h1>
+      <div class="hero-usp">
+        <span>⚡ Отгрузка со склада 1–3 дня</span>
+        <span>🛡 Гарантия 24 месяца</span>
+        <span>🔧 Пусконаладка за 3 дня</span>
+        <span>💳 Лизинг от 8,9% · НДС 20%</span>
+      </div>
+      <p class="sub">Подберём станок под ваши металлы и задачи, пришлём расчёт себестоимости реза и покажем станок в работе на складе — бесплатно, без обязательств.</p>
+      <div class="hero-actions" style="margin-top:22px">
+        <a class="btn btn-red" href="#quiz" data-goal="hero_quiz">Подобрать станок за 2 минуты</a>
+        <a class="btn btn-outline" href="viber://chat?number=%2B78123170000" data-goal="hero_viber">Написать в Viber/WhatsApp</a>
+      </div>
+      <div class="hero-trust">
+        <span><span class="stars">★★★★★</span> 4,8 на Яндекс.Картах</span>
+        <a href="https://yandex.ru/maps/" target="_blank" rel="noopener" data-goal="hero_reviews">37 отзывов →</a>
+        <span>Более <b style="color:var(--text)">240 станков</b> в работе у клиентов с Урала до Дальнего Востока</span>
+      </div>
+    </div>
+
+    <div>
+      <!-- ФОРМА ЗАХВАТА: первый экран, минимум трения -->
+      <form class="lead-form" id="lead-form" onsubmit="return submitLead(event,'hero')">
+        <h3>Рассчитать стоимость станка под вашу задачу</h3>
+        <p class="mini">Пришлём КП с ценой, сроками и расчётом себестоимости реза. <b>Звоним только по делу, в рабочее время.</b></p>
+        <label for="lf-name">Как вас зовут *</label>
+        <input id="lf-name" name="name" required placeholder="Например, Алексей">
+        <label for="lf-phone">Телефон *</label>
+        <input id="lf-phone" name="phone" type="tel" required placeholder="+7 (___) ___-__-__" inputmode="tel">
+        <label for="lf-metal">Что планируете резать?</label>
+        <select id="lf-metal" name="metal">
+          <option value="">— выберите —</option>
+          <option>Сталь до 6 мм</option>
+          <option>Сталь 6–12 мм</option>
+          <option>Нержавейка / алюминий</option>
+          <option>Металл 12–25 мм</option>
+          <option>Пока не знаю — помогите подобрать</option>
+        </select>
+        <button class="btn btn-red" type="submit" data-goal="form_submit_hero">Получить КП за 30 минут</button>
+        <div class="msg-ok" id="ok-hero">✅ Спасибо! КП придёт в течение 30 минут в рабочее время (пн–сб 9:00–19:00).</div>
+        <div class="form-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#1BA75B" stroke-width="2"/></svg>
+          Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности. Мы не передаём контакты третьим лицам и не звоним без вашего запроса.
+        </div>
+      </form>
+
+      <!-- РЕАЛЬНОЕ ВИДЕО РАБОТЫ СТАНКА СО СКЛАДА (заменить на свой ролик) -->
+      <div class="video-block" style="margin-top:20px">
+        <div style="height:300px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">[Здесь будет интерактивная карта склада]</div>
+      </div>
+      <p class="media-note">▲ Съёмка на нашем складе: сталь 10 мм, станок NWA-6040-3000. Скорость реза — 4,2 м/мин.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== КАТЕГОРИИ ===================== -->
+<section class="section" id="catalog">
+  <div class="container">
+    <span class="tag">Каталог</span>
+    <h2 class="h2" style="margin-top:12px">Станки по задачам — все позиции в наличии</h2>
+    <p class="sub">Не нужно ждать поставки из Китая 3–5 месяцев. Приедем, подключим, обучим операторов.</p>
+    <div class="grid cat-grid">
+      <a class="cat-card" href="#prices" data-goal="cat_3kw"><img src="/img/cat-3kw.webp" alt="Лазер 1,5–3 кВт для стали до 6 мм" loading="lazy"><b>1,5–3 кВт</b><span>тонкий металл, декор, таблички · от 1,49 млн ₽</span></a>
+      <a class="cat-card" href="#prices" data-goal="cat_6kw"><img src="/img/cat-6kw.webp" alt="Лазер 6 кВт — самый продаваемый" loading="lazy"><b>6 кВт — хит</b><span>универсал: сталь до 16 мм · от 2,69 млн ₽</span></a>
+      <a class="cat-card" href="#prices" data-goal="cat_12kw"><img src="/img/cat-12kw.webp" alt="Лазер 12 кВт для производства" loading="lazy"><b>8–12 кВт</b><span>серия, металлообработка · от 4,9 млн ₽</span></a>
+      <a class="cat-card" href="#prices" data-goal="cat_tube"><img src="/img/cat-tube.webp" alt="Станок с поворотом для трубы" loading="lazy"><b>Труба / профиль</b><span>поворотная ось R · от 3,4 млн ₽</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ТОВАРЫ С ЦЕНАМИ ===================== -->
+<section class="section section-gray" id="prices">
+  <div class="container">
+    <span class="tag">Цены и наличие</span>
+    <h2 class="h2" style="margin-top:12px">Пять ходовых моделей — цена, остаток, срок отгрузки</h2>
+    <p class="sub">Цены указаны со склада в СПб, с НДС 20%. Действуют до конца месяца. Возможна рассрочка и лизинг.</p>
+    <div class="grid prod-grid">
+
+      <article class="card prod">
+        <div class="ph"><img src="/img/nwa-3020-1500.webp" alt="Волоконный лазер NOWATEQ NWA-3020 мощностью 1,5 кВт" loading="lazy"></div>
+        <div class="body">
+          <h4>NOWATEQ NWA-3020 · 1,5 кВт</h4>
+          <div class="specs"><i>поле 3000×1500</i><i>сталь до 5 мм</i><i>источник Raycus</i></div>
+          <div class="prod-foot"><span class="badge-stock">В наличии · 3 шт.</span><span class="muted">отгрузка 1–2 дня</span></div>
+          <div class="price-row"><span class="price">1 490 000 ₽</span><span class="price-old">1 640 000 ₽</span><span class="promo-chip">−9%</span></div>
+          <a class="btn btn-red" href="#lead-form" data-goal="prod_cta_1500">Запросить цену и демо-рез</a>
+        </div>
+      </article>
+
+      <article class="card prod">
+        <div class="ph"><img src="/img/nwa-3020-3000.webp" alt="Волоконный лазер NOWATEQ NWA-3020 мощностью 3 кВт" loading="lazy"></div>
+        <div class="body">
+          <h4>NOWATEQ NWA-3020 · 3 кВт</h4>
+          <div class="specs"><i>поле 3000×1500</i><i>сталь до 10 мм</i><i>источник Raycus</i></div>
+          <div class="prod-foot"><span class="badge-stock">В наличии · 2 шт.</span><span class="muted">отгрузка 1–3 дня</span></div>
+          <div class="price-row"><span class="price">1 990 000 ₽</span><span class="price-old">2 180 000 ₽</span><span class="promo-chip">−9%</span></div>
+          <a class="btn btn-red" href="#lead-form" data-goal="prod_cta_3000">Запросить цену и демо-рез</a>
+        </div>
+      </article>
+
+      <article class="card prod" style="border:2px solid var(--red)">
+        <div class="ph"><img src="/img/nwa-6040-6000.webp" alt="Волоконный лазер NOWATEQ NWA-6040 мощностью 6 кВт" loading="lazy"></div>
+        <div class="body">
+          <h4>NOWATEQ NWA-6040 · 6 кВт &nbsp;🔥 Хит продаж</h4>
+          <div class="specs"><i>поле 6000×2500</i><i>сталь до 16 мм</i><i>источник Raycus / nLIGHT</i></div>
+          <div class="prod-foot"><span class="badge-stock">В наличии · 4 шт.</span><span class="muted">отгрузка 2–3 дня</span></div>
+          <div class="price-row"><span class="price">2 690 000 ₽</span><span class="price-old">2 950 000 ₽</span><span class="promo-chip">−9%</span></div>
+          <a class="btn btn-red" href="#lead-form" data-goal="prod_cta_6000">Запросить цену и демо-рез</a>
+        </div>
+      </article>
+
+      <article class="card prod">
+        <div class="ph"><img src="/img/nwa-6040-12000.webp" alt="Волоконный лазер NOWATEQ NWA-6040 мощностью 12 кВт" loading="lazy"></div>
+        <div class="body">
+          <h4>NOWATEQ NWA-6040 · 12 кВт</h4>
+          <div class="specs"><i>поле 6000×2500</i><i>сталь до 25 мм</i><i>источник MAX</i></div>
+          <div class="prod-foot"><span class="badge-stock">В наличии · 1 шт.</span><span class="muted">отгрузка 3 дня</span></div>
+          <div class="price-row"><span class="price">4 900 000 ₽</span><span class="price-old">5 350 000 ₽</span><span class="promo-chip">−8%</span></div>
+          <a class="btn btn-red" href="#lead-form" data-goal="prod_cta_12000">Запросить цену и демо-рез</a>
+        </div>
+      </article>
+
+      <article class="card prod">
+        <div class="ph"><img src="/img/nwa-tube-6000.webp" alt="Лазер NOWATEQ с поворотной осью для резки трубы" loading="lazy"></div>
+        <div class="body">
+          <h4>NOWATEQ NWA-TUBE · 6 кВт + ось R</h4>
+          <div class="specs"><i>лист + труба Ø20–220</i><i>сталь до 12 мм</i><i>патрон авто</i></div>
+          <div class="prod-foot"><span class="badge-stock">В наличии · 2 шт.</span><span class="muted">отгрузка 3 дня</span></div>
+          <div class="price-row"><span class="price">3 400 000 ₽</span><span class="price-old">3 720 000 ₽</span><span class="promo-chip">−9%</span></div>
+          <a class="btn btn-red" href="#lead-form" data-goal="prod_cta_tube">Запросить цену и демо-рез</a>
+        </div>
+      </article>
+
+      <article class="card prod" style="justify-content:center;text-align:center;background:var(--dark);color:#fff;border:none">
+        <h4 style="font-size:19px">Не нашли нужную конфигурацию?</h4>
+        <p style="color:#B9C1CE;font-size:14.5px;margin:10px 0 18px">Собираем нестандарт: поля 3×1,5 до 12×2,5 м, источники 1–20 кВт, автоматические столы.</p>
+        <a class="btn btn-white" href="#quiz" data-goal="prod_custom_quiz">Подобрать в квизе за 2 минуты</a>
+        <p style="color:#8B93A1;font-size:12.5px;margin-top:12px">или позвоните: <a href="tel:+78123170000" style="color:#fff;font-weight:700">+7 (812) 317-00-00</a></p>
+      </article>
+
+    </div>
+    <p class="muted" style="margin-top:18px;font-size:14px">📄 Актуальный прайс-лист на все модели и расходники — <a href="/price.pdf" style="color:var(--red);font-weight:800;text-decoration:underline" data-goal="price_pdf_download">скачать прайс (PDF, 1,2 МБ)</a>. Также вышлем в WhatsApp/Viber по запросу.</p>
+  </div>
+</section>
+
+<!-- ===================== КВИЗ ===================== -->
+<section class="section section-dark" id="quiz">
+  <div class="container">
+    <span class="tag" style="background:rgba(226,35,26,.18)">3 вопроса — точный подбор</span>
+    <h2 class="h2" style="margin-top:12px;color:#fff">Подберите станок за 2 минуты и получите скидку 5%</h2>
+    <p class="sub">Ответьте на 3 вопроса — пришлём 2–3 подходящие модели с ценами и расчётом окупаемости. Скидка фиксируется при визите на склад в течение 14 дней.</p>
+
+    <div class="quiz" id="quizBox">
+      <div class="quiz-progress"><i id="qbar"></i></div>
+
+      <div class="quiz-step active" data-step="1">
+        <div class="quiz-q">1. Какой металл и толщину режете чаще всего?</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" onclick="pick(this,1)">Сталь до 6 мм</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,1)">Сталь 6–12 мм</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,1)">Сталь 12–25 мм</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,1)">Нержавейка / алюминий</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="2">
+        <div class="quiz-q">2. Размер листового материала?</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" onclick="pick(this,2)">До 1500×3000</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,2)">До 2000×4000</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,2)">До 2500×6000</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,2)">Ещё больше / труба</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="3">
+        <div class="quiz-q">3. Когда планируете запуск?</div>
+        <div class="quiz-opts">
+          <button type="button" class="quiz-opt" onclick="pick(this,3)">Нужен сейчас</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,3)">В течение месяца</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,3)">2–3 месяца</button>
+          <button type="button" class="quiz-opt" onclick="pick(this,3)">Просто сравниваю цены</button>
+        </div>
+      </div>
+
+      <div class="quiz-step" data-step="4">
+        <div class="quiz-q">Куда отправить подбор и расчёт окупаемости?</div>
+        <form onsubmit="return submitLead(event,'quiz')" id="quiz-form">
+          <input name="name" required placeholder="Имя" style="width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:9px;font:inherit;margin-bottom:10px">
+          <input name="phone" type="tel" required placeholder="+7 (___) ___-__-__" style="width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:9px;font:inherit;margin-bottom:10px">
+          <input name="email" type="email" placeholder="Email (необязательно)" style="width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:9px;font:inherit">
+          <button class="btn btn-red" type="submit" style="width:100%;margin-top:12px" data-goal="quiz_submit">Показать варианты со скидкой 5%</button>
+          <div class="msg-ok" id="ok-quiz">✅ Готово! Подбор придёт в течение 30 минут.</div>
+          <div class="form-note" style="margin-top:10px">🔒 Никакого спама: одно письмо с расчётом + звонок менеджера, если вы не откажетесь.</div>
+        </form>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn btn-outline" type="button" onclick="moveStep(-1)" id="qback" style="visibility:hidden">← Назад</button>
+        <button class="btn btn-red" type="button" onclick="moveStep(1)" id="qnext">Далее →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ЦИФРЫ + ПОЧЕМУ МЫ ===================== -->
+<section class="section" id="service">
+  <div class="container">
+    <div class="grid stats">
+      <div class="stat"><b>11 лет</b><span>поставляем лазеры в РФ с 2014 года</span></div>
+      <div class="stat"><b>240+</b><span>станков в работе у клиентов</span></div>
+      <div class="stat"><b>37</b><span>реальных отзыва на Яндекс.Картах (4,8★)</span></div>
+      <div class="stat"><b>4 часа</b><span>среднее время выезда сервисного инженера по СПб</span></div>
+    </div>
+
+    <h2 class="h2" style="margin-top:56px">Почему покупают у нас, а не «напрямую из Китая»</h2>
+    <div class="grid why-grid">
+      <div class="card why"><div class="ico">🏭</div><h3 class="h3">Склад и шоурум в СПб</h3><p>Приезжайте, смотрите станки вживую, режьте свой образец металла бесплатно. Не нужно верить картинкам на слово.</p></div>
+      <div class="card why"><div class="ico">🛡</div><h3 class="h3">Гарантия 24 месяца от юрлица в РФ</h3><p>Договор, счёт, закрывающие документы, НДС. Гарантия исполняется по российскому праву, а не «как договоритесь с заводом».</p></div>
+      <div class="card why"><div class="ico">🔩</div><h3 class="h3">Свои запчасти на складе</h3><p>Защитные стёкла, сопла, линзы, ЧЗО, источники — всё в наличии в СПб. Простой из-за детали — это минус 30–80 тыс. ₽ выручки в день.</p></div>
+      <div class="card why"><div class="ico">🎓</div><h3 class="h3">Обучение операторов включено</h3><p>3 дня пусконаладки + обучение вашей команды работе в SigmaNEST/Flux и обслуживанию. Видеоинструкции остаются у вас навсегда.</p></div>
+      <div class="card why"><div class="ico">💳</div><h3 class="h3">Лизинг и рассрочка</h3><p>Одобрение за 1 день через 12 партнёрских лизинговых компаний. Аванс от 20%, ставка от 8,9% годовых, лизинг с НДС.</p></div>
+      <div class="card why"><div class="ico">📉</div><h3 class="h3">Расчёт экономики до покупки</h3><p>Бесплатно посчитаем себестоимость реза метра по вашим металлам и покажем, за сколько месяцев окупится станок.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== СКЛАД / ОФИС + КАРТА ===================== -->
+<section class="section section-gray">
+  <div class="container">
+    <h2 class="h2">Проверьте нас за 10 минут: приезжайте на склад</h2>
+    <p class="sub">Покажем станки в работе, даём попробовать резать своим металлом. Перед визитом напишите — подготовим образец и менеджера.</p>
+    <div class="warehouse-grid">
+      <div>
+        <img src="/img/warehouse-real.webp" alt="Реальное фото склада NOWATEQ: волоконные лазеры в упаковке на паллетах, Обуховской Обороны 110" loading="lazy">
+        <p class="media-note">▲ Реальное фото нашего склада, сентябрь 2025. Без рендеров и нейросетей.</p>
+      </div>
+      <div>
+        <ul class="addr-list">
+          <li>🏢 <b>Компания:</b> ООО «Новатек»</li>
+          <li>📍 <b>Склад и шоурум:</b> Санкт-Петербург, пр. Обуховской Обороны, 110, к.2, вход 3, этаж 1</li>
+          <li>🕘 <b>Часы работы:</b> Пн–Пт 9:00–19:00, Сб 10:00–16:00 (визиты — по предварительной записи)</li>
+          <li>🔑 <b>ИНН:</b> 7811XXXXXX &nbsp;·&nbsp; <b>ОГРН:</b> 11478XXXXXXXXX</li>
+          <li>📞 <b>Отдел продаж:</b> <a href="tel:+78123170000" style="color:var(--red);font-weight:800">+7 (812) 317-00-00</a> · <b>Сервис:</b> <a href="tel:+78123170001" style="color:var(--red);font-weight:800">+7 (812) 317-00-01</a></li>
+          <li>✉️ <b>Почта:</b> sales@nowateq.ru · договора: doc@nowateq.ru</li>
+        </ul>
+        <div class="map-frame" style="margin-top:18px">
+          <div style="height:300px;background:#e5e7eb;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">[Здесь будет интерактивная карта склада]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== КЕЙСЫ И ОТЗЫВЫ ===================== -->
+<section class="section" id="cases">
+  <div class="container">
+    <span class="tag">Кейсы и отзывы</span>
+    <h2 class="h2" style="margin-top:12px">Станки, которые уже приносят клиентам деньги</h2>
+    <div class="grid case-grid">
+      <div class="card case">
+        <div class="who"><div class="ava">АП</div><div><b>Артём П., «БалтМеталл», СПб</b><span>NWA-6040 · 6 кВт · куплен в 2024</span></div></div>
+        <blockquote>«Взяли после теста нашего металла на складе. Через полгода окупили станок на заказе для судостроителей.»</blockquote>
+        <div class="result">📈 Рез 10 мм: 22 → 4,1 мин/м. Окупаемость — 7 мес.</div>
+        <a class="case-link" href="/cases/baltmetall" data-goal="case_read_more">Читать кейс целиком →</a>
+      </div>
+      <div class="card case">
+        <div class="who"><div class="ava">ЕК</div><div><b>Елена К., «Мебель+.Лофт», Казань</b><span>NWA-3020 · 3 кВт · доставка в 2023</span></div></div>
+        <blockquote>«Боялись брать „китайца“, но сервис реально работает: разбили оптику в пятницу — в понедельник инженер уже был у нас.»</blockquote>
+        <div class="result">📉 Простои за год — 1 день. Простой у поставщика мебельных рам — −40%.</div>
+        <a class="case-link" href="/cases/mebel-loft" data-goal="case_read_more">Читать кейс целиком →</a>
+      </div>
+      <div class="card case">
+        <div class="who"><div class="ava">ДС</div><div><b>Дмитрий С., ИП, Новосибирск</b><span>NWA-TUBE · 6 кВт + ось R · 2025</span></div></div>
+        <blockquote>«Резка профиля ушла с подрядчика на себя — маржа на изделиях выросла почти вдвое.»</blockquote>
+        <div class="result">💰 Экономия на подряде — 310 000 ₽/мес. Станок вышел на себя за 5 мес.</div>
+        <a class="case-link" href="/cases/ip-s-novosibirsk" data-goal="case_read_more">Читать кейс целиком →</a>
+      </div>
+    </div>
+    <div style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <a class="btn btn-outline" href="https://yandex.ru/maps/" target="_blank" rel="noopener" data-goal="reviews_yandex">Все 37 отзывов на Яндекс.Картах ★ 4,8</a>
+      <span class="muted" style="font-size:14px">Также ищем нас: «NOWATEQ Санкт-Петербург» в 2ГИС</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== УСЛУГИ С ТАРИФАМИ ===================== -->
+<section class="section section-gray">
+  <div class="container">
+    <h2 class="h2">Услуги — с прозрачными тарифами</h2>
+    <div class="grid svc-grid">
+      <div class="card svc"><h3 class="h3">Демо-рез вашего металла</h3><div class="price">0 ₽</div><p>Присылайте чертёж и металл — отрежем на складе и снимем видео. Или приезжайте лично.</p><a class="btn btn-red" style="margin-top:14px" href="#lead-form" data-goal="svc_demo">Отправить металл</a></div>
+      <div class="card svc"><h3 class="h3">Пусконаладка под ключ</h3><div class="price">90 000 ₽</div><p>Доставка, монтаж, подключение, калибровка + обучение до 4 операторов за 3 дня.</p><a class="btn btn-outline" style="margin-top:14px" href="tel:+78123170000" data-goal="svc_pn_call">Обсудить</a></div>
+      <div class="card svc"><h3 class="h3">ТО станка (выезд)</h3><div class="price">от 25 000 ₽</div><p>Юстировка, чистка, проверка источника и ЧЗО. По СПб — выезд в течение 4 часов.</p><a class="btn btn-outline" style="margin-top:14px" href="tel:+78123170001" data-goal="svc_to_call">Вызвать инженера</a></div>
+      <div class="card svc"><h3 class="h3">Расходники и ЗИП</h3><div class="price">от 900 ₽</div><p>Сопла, защитные стёкла, линзы, фильтры — всё в наличии, отправка в день заказа.</p><a class="btn btn-outline" style="margin-top:14px" href="/parts" data-goal="svc_parts">Смотреть каталог</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="h2" style="text-align:center">Частые вопросы</h2>
+    <div class="faq">
+      <details class="qa"><summary>Почему «китайский» лазер, а не немецкий?</summary><div class="a">Мы продаём волоконные лазеры с мировыми комплектующими (источники Raycus/nLIGHT/MAX, ЧЗО, сервоприводы). По соотношению цена/качество альтернатив им нет: аналогичный станок европейского бренда будет стоить 2,5–3 раза дороже, а запасы расходников и ремонт — в разы дольше. Мы сами работаем на этих станках и даём гарантию от российского юрлица.</div></details>
+      <details class="qa"><summary>Сколько стоит доставка в регион?</summary><div class="a">По СПб — от 8 000 ₽ (манипулятор). В регионы — транспортной компанией, обычно 45 000–90 000 ₽ в зависимости от города и модели. Станок идёт в жёсткой обрешётке на паллете, страхуем груз. Итоговую стоимость включаем в КП — она фиксированная.</div></details>
+      <details class="qa"><summary>Какая гарантия и что в неё входит?</summary><div class="a">24 месяца на всю машину, включая источник излучения. Гарантия исполняет ООО «Новатек» по договору в РФ. В гарантийный период — удалённая диагностика 24/7, выезд инженера по СПб за 4 часа, замена дефектных узлов и работ бесплатно.</div></details>
+      <details class="qa"><summary>Можно ли купить в лизинг или рассрочку?</summary><div class="a">Да. Работаем с 12 лизинговыми компаниями: аванс от 20%, срок до 36 мес., ставка от 8,9%, одобрение за 1 день по 2 документам. Для юрлиц возможна рассрочка платежа: 50% при заказе, 50% — после запуска станка.</div></details>
+      <details class="qa"><summary>Смогут ли наши операторы работать без опыта?</summary><div class="a">Да — софт русифицирован, интерфейс интуитивный. Обучение входит в пусконаладку: как правило, оператор с базовой компьютерной грамотностью выходит на автономную работу за 2–3 дня. После сдачи объекта остаётся техподдержка в WhatsApp с ответом в среднем за 15 минут.</div></details>
+      <details class="qa"><summary>А можно посмотреть станок в деле до покупки?</summary><div class="a">Пожалуйста. Склад в СПб открыт Пн–Пт 9:00–19:00, Сб 10:00–16:00. Привозите свой металл (до 3 образцов бесплатно) или закажите демо-рез онлайн — пришлём видео с параметрами реза и расчётом себестоимости.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ФИНАЛЬНЫЙ CTA ===================== -->
+<section class="section section-dark" id="contacts" style="text-align:center">
+  <div class="container">
+    <h2 class="h2" style="color:#fff">Один шаг до станка, который режет металл и зарабатывает деньги</h2>
+    <p class="sub" style="margin:14px auto 26px;max-width:640px">Оставьте номер — в течение 30 минут в рабочее время пришлём КП с ценой, сроком отгрузки и расчётом окупаемости под ваши металлы.</p>
+    <form onsubmit="return submitLead(event,'final')" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:720px;margin:0 auto">
+      <input name="name" required placeholder="Имя" style="flex:1;min-width:180px;padding:15px;border:none;border-radius:10px;font:inherit">
+      <input name="phone" type="tel" required placeholder="+7 (___) ___-__-__" style="flex:1;min-width:200px;padding:15px;border:none;border-radius:10px;font:inherit">
+      <button class="btn btn-red" type="submit" data-goal="form_submit_final">Получить КП за 30 минут</button>
+      <div class="msg-ok" id="ok-final" style="width:100%">✅ Заявка принята! Ждите звонок или сообщение в WhatsApp.</div>
+    </form>
+    <div style="margin-top:26px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-white" href="tel:+78123170000" data-goal="final_call">📞 +7 (812) 317-00-00</a>
+      <a class="btn btn-white" href="https://wa.me/78123170000" target="_blank" rel="noopener" data-goal="final_whatsapp">💬 WhatsApp менеджеру Екатерине</a>
+      <a class="btn btn-white" href="viber://chat?number=%2B78123170000" data-goal="final_viber">🟪 Viber</a>
+    </div>
+    <p class="req" style="margin-top:34px">ООО «Новатек» · ИНН 7811XXXXXX · ОГРН 11478XXXXXXXXX<br>193217, Санкт-Петербург, пр. Обуховской Обороны, 110, к.2, вход 3<br>sales@nowateq.ru · Пн–Пт 9:00–19:00, Сб 10:00–16:00</p>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/" style="color:#fff"><span class="mark">N</span><span>NOWATEQ<small style="color:#8B93A1">склад · сервис · обучение</small></span></a>
+        <p style="margin-top:14px">Волоконные лазерные станки для резки металла. Продаём, доставляем, запускаем и обслуживаем со склада в Санкт-Петербурге с 2014 года.</p>
+      </div>
+      <div>
+        <h5>Каталог</h5>
+        <ul>
+          <li><a href="#prices">Лазеры 1,5–3 кВт</a></li>
+          <li><a href="#prices">Лазеры 6 кВт</a></li>
+          <li><a href="#prices">Лазеры 8–12 кВт</a></li>
+          <li><a href="#prices">Резка трубы (ось R)</a></li>
+          <li><a href="/parts">Запчасти и расходники</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Компания</h5>
+        <ul>
+          <li><a href="#cases">Кейсы и отзывы</a></li>
+          <li><a href="#service">Сервис и гарантия</a></li>
+          <li><a href="#faq">Вопросы и ответы</a></li>
+          <li><a href="/price.pdf" data-goal="footer_price">Прайс-лист (PDF)</a></li>
+          <li><a href="/privacy">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <ul>
+          <li><a href="tel:+78123170000" style="font-weight:800;color:#fff">+7 (812) 317-00-00 — продажи</a></li>
+          <li><a href="tel:+78123170001">+7 (812) 317-00-01 — сервис 24/7</a></li>
+          <li><a href="mailto:sales@nowateq.ru">sales@nowateq.ru</a></li>
+          <li>пр. Обуховской Обороны, 110, к.2</li>
+          <li><a href="https://wa.me/78123170000" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/nowateq_spb" target="_blank" rel="noopener">Telegram-канал со скидками</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2014–2026 ООО «Новатек». Все права защищены. Цены на сайте не являются публичной офертой.</span>
+      <span>Санкт-Петербург · Москва · Казань · Екатеринбург · Новосибирск</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== МОБИЛЬНАЯ ПАНЕЛЬ CTA ===================== -->
+<div class="mob-panel">
+  <a href="tel:+78123170000" class="mp-call" data-goal="mob_call">📞 Звонок</a>
+  <a href="https://wa.me/78123170000" class="mp-wa" data-goal="mob_wa">💬 WhatsApp</a>
+  <a href="#lead-form" class="mp-kp" data-goal="mob_kp">📄 КП за 30 мин</a>
+</div>
+
+
+
+<!-- Яндекс.Метрика: единственный асинхронный скрипт, заменить XXXXXXX на ID -->
+
+<noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXX" style="position:absolute;left:-9999px" alt=""></div></noscript>
+
+<!-- JSON-LD: LocalBusiness + Offer + FAQPage (SEO и сниппеты) -->
+
+
+</body>
+</html>

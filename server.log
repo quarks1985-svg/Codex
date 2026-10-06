@@ -1,0 +1,6 @@
+127.0.0.1 - - [05/Oct/2026 12:54:10] "GET /stanki-lazernoj-rezki.html HTTP/1.1" 200 -
+127.0.0.1 - - [05/Oct/2026 12:54:44] "GET /stanki-lazernoj-rezki.html HTTP/1.1" 200 -
+127.0.0.1 - - [05/Oct/2026 12:54:45] code 404, message File not found
+127.0.0.1 - - [05/Oct/2026 12:54:45] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [05/Oct/2026 12:54:48] "GET /stanki-lazernoj-rezki.html HTTP/1.1" 200 -
+127.0.0.1 - - [05/Oct/2026 12:54:51] "GET /stanki-lazernoj-rezki.html HTTP/1.1" 304 -
